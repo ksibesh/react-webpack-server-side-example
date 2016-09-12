@@ -4,6 +4,7 @@ var commonLoaders = [
 	{ test: /\.js$/, loader: "babel-loader" },
 	{ test: /\.png$/, loader: "url-loader" },
 	{ test: /\.jpg$/, loader: "file-loader" },
+	{ test: /\.svg$/, loader: "url-loader" },
 ];
 var assetsPath = path.join(__dirname, "public", "assets");
 var publicPath = "assets/";
