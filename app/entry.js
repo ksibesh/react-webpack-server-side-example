@@ -1,7 +1,5 @@
-/** @jsx React.DOM */
-
-var React = require("react");
-var Application = require("./Application");
+import React from "react";
+import Application from "./Application";
 
 React.renderComponent(
 	<Application url={location.pathname + (location.search || "")} />,

@@ -1,18 +1,15 @@
-/** @jsx React.DOM */
-
-var React = require("react");
-
-var Application = require("../app/Application");
-
-var styleCollector = require("./style-collector");
+import React from "react";
+import ReactDOM from 'react-dom/server';
+import Application from "../app/Application";
+import styleCollector from "./style-collector";
 
 module.exports = function(req, scriptFilename) {
 
 	var html;
 	var css = styleCollector.collect(function() {
-		html = React.renderComponentToString(<Application url={req.url}/>);
+		html = ReactDOM.renderToString(<Application url={req.url}/>);
 	});
-	return React.renderComponentToString(
+	return ReactDOM.renderToString(
 		<html>
 			<head>
 				<style id="server-side-style" dangerouslySetInnerHTML={{__html: css}} />

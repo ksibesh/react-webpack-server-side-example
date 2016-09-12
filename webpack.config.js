@@ -1,7 +1,7 @@
 var path = require("path");
 
 var commonLoaders = [
-	{ test: /\.js$/, loader: "jsx-loader" },
+	{ test: /\.js$/, loader: "babel-loader" },
 	{ test: /\.png$/, loader: "url-loader" },
 	{ test: /\.jpg$/, loader: "file-loader" },
 ];
@@ -21,6 +21,7 @@ module.exports = [
 		module: {
 			loaders: commonLoaders.concat([
 				{ test: /\.css$/, loader: "style-loader!css-loader" },
+				{ test: /\.scss$/, loader: "style-loader!css-loader!sass-loader" },
 			])
 		},
 		plugins: [
@@ -46,6 +47,7 @@ module.exports = [
 		module: {
 			loaders: commonLoaders.concat([
 				{ test: /\.css$/,  loader: path.join(__dirname, "server", "style-collector") + "!css-loader" },
+				{ test: /\.scss$/,  loader: path.join(__dirname, "server", "style-collector") + "!css-loader!sass-loader" },
 			])
 		}
 	}

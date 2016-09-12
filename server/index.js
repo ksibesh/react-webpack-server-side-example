@@ -1,3 +1,4 @@
+require('babel-core/register');
 var express = require("express");
 var path = require("path");
 var page = require("./page.generated.js");
